@@ -9,7 +9,7 @@
       "purpose": "any maskable"
     }
   ],
-  "start_url": "./pwaTest",
+  "start_url": "./",
   "background_color": "#1d1d1d",
   "display": "standalone",
   "theme_color": "#1d1d1d"
