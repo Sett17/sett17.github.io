@@ -16,7 +16,7 @@ body {
     height: 100%;
     width: 100%;
     overflow: hidden;
-    background-color: rgb(28, 28, 28);
+    background-color: #1d1d1d;
     display: flex;
 }
 
