@@ -8,9 +8,8 @@
       "sizes": "800x800"
     }
   ],
-  "start_url": "/?source=pwa",
+  "start_url": "/pwaTest",
   "background_color": "#1d1d1d",
   "display": "standalone",
-  "scope": "/",
   "theme_color": "#1d1d1d"
 }
