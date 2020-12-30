@@ -3,9 +3,9 @@
   "name": "ProgWebAppTest",
   "icons": [
     {
-      "src": "/pwaTest/assets/icon.png",
+      "src": "/pwaTest/assets/maskable_icon.png",
       "type": "image/png",
-      "sizes": "800x800"
+      "sizes": "888x888"
     }
   ],
   "start_url": "./pwaTest",
