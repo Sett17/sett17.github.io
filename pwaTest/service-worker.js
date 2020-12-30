@@ -1,14 +1,17 @@
-// PWA Fire Bundle
-
-// after a service worker is installed and the user navigates to a different page or 
-// refreshes,the service worker will begin to receive fetch events
+cacheName = "testCache-v1.0"
+const toCache = [
+    '/',
+    '/index.html',
+    '/style.css',
+    '/assets/*',
+    '/compos/*',
+]
 
 self.addEventListener('fetch', function (event) {
-    event.respondWith(caches.open('cache').then(function (cache) {
+    event.respondWith(caches.open(cacheName).then(function (cache) {
         return cache.match(event.request).then(function (response) {
             console.log("[R] cache request: " + event.request.url)
             var fetchPromise = fetch(event.request).then(function (networkResponse) {
-                // if we got a response from the cache, update the cache                   
                 console.log("[D] fetch completed: " + event.request.url, networkResponse)
                 if (networkResponse) {
                     console.debug("[U] updated cached page: " + event.request.url, networkResponse)
@@ -16,36 +19,28 @@ self.addEventListener('fetch', function (event) {
                 }
                 return networkResponse
             }, function (event) {
-                // rejected promise - just ignore it, we're offline!   
                 console.log("[E] Error in fetch()", event)
                 event.waitUntil(
-                    caches.open('cache').then(function (cache) {
-                        // our cache is named *cache* in the caches.open() above
-                        return cache.addAll
-                            ([
-                                //cache.addAll(), takes a list of URLs, then fetches them from the server
-                                // and adds the response to the cache.           
-                                // add your entire site to the cache- as in the code below; for offline access
-                                // If you have some build process for your site, perhaps that could 
-                                // generate the list of possible URLs that a user might load.               
-                                '/', // do not remove this
-                                '/index.html', //default
-                                '/?homescreen=1', //default
-                                '/style.css',// configure as by your site ; just an example
-                                '/assets/*',// choose images to keep offline; just an example
-                                '/compos/*',
-                                // Do not replace/delete/edit the manifest.js paths below
-                                //These are links to the extenal social media buttons that should be cached;
-                                // we have used twitter's as an example
-                                'https://platform.twitter.com/widgets.js',
-                            ])
+                    caches.open(cacheName).then(function (cache) {
+                        return cache.addAll(toCache)
                     })
                 )
             })
-            // respond from the cache, or the network
             return response || fetchPromise
         })
     }))
+})
+
+self.addEventListener('activate', (e) => {
+    e.waitUntil(
+        caches.keys().then((keyList) => {
+            return Promise.all(keyList.map((key) => {
+                if (key !== cacheName) {
+                    return caches.delete(key)
+                }
+            }))
+        })
+    )
 })
 
 self.addEventListener('install', function (event) {
