@@ -1,0 +1,22 @@
+{
+  "short_name": "Drink!Drink!",
+  "name": "Joooooooo",
+  "icons": [
+    {
+      "src": "/drinkingGame/assets/maskable_icon.png",
+      "type": "image/png",
+      "sizes": "888x888",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/drinkingGame/assets/icon.png",
+      "type": "image/png",
+      "sizes": "800x800",
+      "purpose": "any"
+    }
+  ],
+  "start_url": "./",
+  "background_color": "#1d1d1d",
+  "display": "standalone",
+  "theme_color": "#1d1d1d"
+}
