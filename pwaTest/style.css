@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'SF-Pro';
+    src: url('./assets/SF-UI-Text-Regular.otf');
+}
+
+* {
+    transition: all 150ms;
+}
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    color: floralwhite;
+    font-family: 'SF-Pro';
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-color: hsl(0, 0%, 11%);
+    display: flex;
+}
+
+#root {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes loadIcon {
+    from {
+        transform: scale(.9);
+    }
+
+    to {
+        transform: scale(1.1);
+    }
+}
+
+#loadingIcon {
+    width: 30vw;
+    height: 30vw;
+
+    animation: 3s ease-in-out loadIcon infinite alternate;
+}

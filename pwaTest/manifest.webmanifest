@@ -1,0 +1,16 @@
+{
+  "short_name": "PWATest",
+  "name": "ProgWebAppTest",
+  "icons": [
+    {
+      "src": "/assets/icon.png",
+      "type": "image/png",
+      "sizes": "800x800"
+    }
+  ],
+  "start_url": "/?source=pwa",
+  "background_color": "#1d1d1d",
+  "display": "standalone",
+  "scope": "/",
+  "theme_color": "#1d1d1d"
+}
