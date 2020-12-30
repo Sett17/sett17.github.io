@@ -3,7 +3,7 @@
   "name": "ProgWebAppTest",
   "icons": [
     {
-      "src": "/assets/icon.png",
+      "src": "/pwaTest/assets/icon.png",
       "type": "image/png",
       "sizes": "800x800"
     }
