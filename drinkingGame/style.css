@@ -135,13 +135,13 @@ body {
 }
 
 #pregame-addPlayerBtn {
-    height: 6vh;
-    width: 6vh;
-    border-radius: 6vh;
+    height: 10vh;
+    width: 10vh;
+    border-radius: 10vh;
     border: floralwhite 2px solid;
     background-color: transparent;
     color: floralwhite;
-    font-size: 1.3em;
+    font-size: 2em;
 }
 
 #pregame-playBtn {
@@ -156,6 +156,6 @@ body {
 
 .pregame-hidden {
     position: absolute;
-    visibility: hidden;
+    opacity: 0%;
 }
 /* ------------------------------- */
