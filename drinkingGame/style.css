@@ -138,6 +138,9 @@ body {
     height: 10vh;
     width: 10vh;
     border-radius: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: floralwhite 2px solid;
     background-color: transparent;
     color: floralwhite;
