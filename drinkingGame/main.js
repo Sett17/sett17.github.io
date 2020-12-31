@@ -14,6 +14,9 @@ search.forEach(el => {
                     break
                 case "pregame":
                     loadCompo(preGame)
+                    if (isMobile()) {
+                        document.querySelector('#pregame-playerAddBtn').classList.add('pregame-hidden')
+                    }
                     break
                 default:
                     break
@@ -29,12 +32,14 @@ function inpFocusIn() {
     if (isMobile()) {
         document.querySelector('#pregame-playerlist').classList.add('pregame-hidden')
         document.querySelector('#pregame-playBtn').classList.add('pregame-hidden')
+        document.querySelector('#pregame-playerAddBtn').classList.remove('pregame-hidden')
     }
 }
 function inpFocusOut() {
     if (isMobile()) {
         document.querySelector('#pregame-playerlist').classList.remove('pregame-hidden')
         document.querySelector('#pregame-playBtn').classList.remove('pregame-hidden')
+        document.querySelector('#pregame-playerAddBtn').classList.add('pregame-hidden')
     }
 }
 
