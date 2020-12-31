@@ -130,6 +130,7 @@ body {
     text-align: center;
     font-size: 1.5em;
     border-bottom: floralwhite 3px solid;
+    color: floralwhite;
     background-color: transparent;
 }
 
@@ -151,5 +152,10 @@ body {
     border: floralwhite 2px solid;
     background-color: transparent;
     color: floralwhite;
+}
+
+.pregame-hidden {
+    position: absolute;
+    visibility: hidden;
 }
 /* ------------------------------- */
