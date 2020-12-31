@@ -1,12 +1,32 @@
-// document.querySelector('#root').innerHTML = loadFile('./compos/startmenu.compo')
+const startMenu = "./compos/startmenu.compo"
+const preGame = "./compos/pregame.compo"
 
-function loadFile(filePath) {
-    var result = null
-    var xmlhttp = new XMLHttpRequest()
-    xmlhttp.open("GET", filePath, false)
-    xmlhttp.send()
-    if (xmlhttp.status == 200) {
-        result = xmlhttp.responseText
+let search = window.location.search.slice(1).split('&')
+for (let i = 0; i < search.length; i++) {
+    search[i] = search[i].split('=')
+}
+search.forEach(el => {
+    switch (el[0]) {
+        case "page":
+            switch (el[1]) {
+                case "startMenu":
+                    loadCompo(startMenu)
+                    break
+                case "pregame":
+                    loadCompo(preGame)
+                    break
+                default:
+                    break
+            }
+            break
+
+        default:
+            loadCompo(startMenu)
     }
-    return result
+})
+
+function loadCompo(filePath) {
+    fetch(filePath)
+        .then(res => res.text())
+        .then(data => { document.querySelector('#root').innerHTML = data })
 }

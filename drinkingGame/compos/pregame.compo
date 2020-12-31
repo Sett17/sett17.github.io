@@ -1,0 +1,15 @@
+<div id="pregame-title">
+Pregame
+</div>
+<div id="pregame-content">
+    <div id="pregame-playerlist">
+        <span>eins</span>
+        <span>zwei</span>
+        <span>drei</span>
+        <span>vier</span>
+        <span>fünf</span>
+    </div>
+    <input type="text" name="playername" id="pregame-playernameInp" placeholder="Name">
+    <button id="pregame-addPlayerBtn">+</button>
+    <button id="pregame-playBtn">Trinken!</button>
+</div>

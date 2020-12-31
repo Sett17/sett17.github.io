@@ -13,6 +13,7 @@ body {
     padding: 0;
     color: floralwhite;
     font-family: 'SF-Pro';
+    font-size: 1.3em;
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -43,55 +44,112 @@ body {
     animation: 3s ease-in-out loadIcon infinite alternate;
 }
 
-#header {
-    display: flex;
-    flex-direction: row;
-    flex: .8;
-    background-color: hsl(0, 0%, 11%);
-    box-shadow: hsla(0, 0%, 0%, 50%) 0px 4px 18px;
-    z-index: 11;
-}
-
-#profilePic {
-    background-image: url('assets/icon.webp');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: 50% 50%;
-    flex: 2;
-}
-
-#screenTitle {
-    flex: 8;
-    display: flex;
-    padding-left: 4%;
-    font-size: 1.8em;
-    align-items: center;
-    /* justify-content: center; */
-}
-
-#settingsBurger {
-    flex: 1;
-}
-
-#content {
-    display: flex;
-    flex: 10;
-    background-color: hsl(0, 0%, 14%);
-    z-index: 8;
-}
-
-#footer {
-    display: flex;
-    flex: 1;
-    flex-direction: row;
-    justify-content: space-evenly;
-    background-color: hsl(0, 0%, 11%);
-    box-shadow: hsla(0, 0%, 0%, 50%) 0px -4px 8px;
-    z-index: 11;
-}
-
 /* ---------- startMenu ---------- */
 
+#startMenu-title {
+    flex: 1.8;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 2em;
+    /* background-color: aqua; */
+}
+
+#startMenu-btns {
+    flex: 5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* background-color: blueviolet; */
+}
+
+.startMenu-btn {
+    height: 7vh;
+    border-radius: 7vh;
+    line-height: 7vh;
+    text-align: center;
+    font-size: .85em;
+    width: 40%;
+    border: floralwhite 3px solid;
+}
+
+#startMenu-spacer {
+    flex: .7;
+    /* background-color: thistle; */
+}
+
+/* ------------------------------- */
 
 
+/* ----------- pregame ----------- */
+
+#pregame-title {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 2.5em;
+}
+
+#pregame-content {
+    flex: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#pregame-playerlist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vw;
+    height: 30%;
+    font-size: 1.2em;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+#pregame-playerlist span {
+    display: block;
+    width: 50%;
+    text-align: center;
+    border-bottom: floralwhite 1px solid;
+}
+
+#pregame-playerlist span:last-of-type {
+    border-bottom: none;
+}
+
+#pregame-playernameInp {
+    border: none;
+    width: 60vw;
+    height: 8.5vh;
+    line-height: 8vh;
+    text-align: center;
+    font-size: 1.5em;
+    border-bottom: floralwhite 3px solid;
+    background-color: transparent;
+}
+
+#pregame-addPlayerBtn {
+    height: 6vh;
+    width: 6vh;
+    border-radius: 6vh;
+    border: floralwhite 2px solid;
+    background-color: transparent;
+    color: floralwhite;
+    font-size: 1.3em;
+}
+
+#pregame-playBtn {
+    height: 6vh;
+    width: 50vw;
+    border-radius: 6vh;
+    font-size: .9em;
+    border: floralwhite 2px solid;
+    background-color: transparent;
+    color: floralwhite;
+}
 /* ------------------------------- */

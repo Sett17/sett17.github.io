@@ -1,0 +1,14 @@
+<div id="startMenu-title">
+    Drink!Drink!
+</div>
+<div id="startMenu-btns">
+    <div class="startMenu-btn" id="playBtn">
+        Spielen!
+    </div>
+    <div class="startMenu-btn" id="settingsBtn">
+        Blah
+    </div>
+</div>
+<div id="startMenu-spacer">
+
+</div>
