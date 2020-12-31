@@ -1,4 +1,4 @@
-document.querySelector('#root').innerHTML = loadFile('./compos/startmenu.compo')
+// document.querySelector('#root').innerHTML = loadFile('./compos/startmenu.compo')
 
 function loadFile(filePath) {
     var result = null

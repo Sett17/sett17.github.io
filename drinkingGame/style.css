@@ -43,59 +43,55 @@ body {
     animation: 3s ease-in-out loadIcon infinite alternate;
 }
 
-/* ---------- startMenu ---------- */
-
-#startMenu-title {
+#header {
     display: flex;
-    flex: 1;
-    justify-content: center;
-    align-items: center;
+    flex-direction: row;
+    flex: .8;
+    background-color: hsl(0, 0%, 11%);
+    box-shadow: hsla(0, 0%, 0%, 50%) 0px 4px 18px;
+    z-index: 11;
 }
 
-#startMenu-btns {
-    display: flex;
-    flex-direction: column;
+#profilePic {
+    background-image: url('assets/icon.webp');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
     flex: 2;
 }
 
-#startMenu-btns div {
+#screenTitle {
+    flex: 8;
     display: flex;
+    padding-left: 4%;
+    font-size: 1.8em;
     align-items: center;
+    /* justify-content: center; */
+}
+
+#settingsBurger {
     flex: 1;
-    padding-left: 10%;
-    padding-right: 10%;
 }
 
-#startMenu-spacer {
-    flex: .3;
+#content {
+    display: flex;
+    flex: 10;
+    background-color: hsl(0, 0%, 14%);
+    z-index: 8;
 }
 
-#startMenu-btns div[right] {
-    justify-content: flex-end;
+#footer {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: space-evenly;
+    background-color: hsl(0, 0%, 11%);
+    box-shadow: hsla(0, 0%, 0%, 50%) 0px -4px 8px;
+    z-index: 11;
 }
 
-#startMenu-btns div[left] {
-    justify-content: flex-start;
-}
+/* ---------- startMenu ---------- */
 
-#startMenu-btns div span {
-    display: block;
-    background-color: blue;
-    height: 10vh;
-    border-radius: 10vh;
-    line-height: 10vh;
-    font-size: 1.5em;
-    text-align: center;
-    width: 60%;
-    box-shadow: hsla(0, 0%, 0%, 80%) 6px 6px 13px 0px;
-}
 
-#startMenu-btns div[right] span {
-    border-bottom-right-radius: 0;
-}
-
-#startMenu-btns div[left] span {
-    border-bottom-left-radius: 0;
-}
 
 /* ------------------------------- */
