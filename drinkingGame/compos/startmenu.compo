@@ -2,7 +2,7 @@
     Drink!Drink!
 </div>
 <div id="startMenu-btns">
-    <div class="startMenu-btn" id="playBtn">
+    <div class="startMenu-btn" id="playBtn" onclick="changePage('pregame')">
         Spielen!
     </div>
     <div class="startMenu-btn" id="settingsBtn">
