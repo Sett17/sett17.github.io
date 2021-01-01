@@ -44,6 +44,21 @@ body {
     animation: 3s ease-in-out loadIcon infinite alternate;
 }
 
+.btn {
+    color: floralwhite;
+    border: floralwhite 3px solid;
+    background-color: #1d1d1d;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn:hover {
+    color: #1d1d1d;
+    background-color: floralwhite;
+}
+
 /* ---------- startMenu ---------- */
 
 #startMenu-title {
@@ -161,4 +176,5 @@ body {
     position: absolute;
     opacity: 0%;
 }
+
 /* ------------------------------- */

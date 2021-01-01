@@ -4,7 +4,7 @@
 <div id="pregame-content">
     <input type="text" name="playername" id="pregame-playernameInp" placeholder="Name" onfocus="inpFocusIn()"
         onfocusout="inpFocusOut()">
-    <button id="pregame-addPlayerBtn">+</button>
+    <button id="pregame-addPlayerBtn" class="btn">+</button>
     <div id="pregame-playerlist">
         <span>eins</span>
         <span>zwei</span>
@@ -12,7 +12,7 @@
         <span>vier</span>
         <span>fünf</span>
     </div>
-    <button id="pregame-playBtn">Trinken!</button>
+    <button id="pregame-playBtn" class="btn">Trinken!</button>
 </div>
 
 <!-- add class="pregame-hidden" to playList and playBtn when input is focused aka keybaord is visible on phone
