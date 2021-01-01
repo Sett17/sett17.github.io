@@ -79,13 +79,17 @@ body {
     /* background-color: blueviolet; */
 }
 
+a{
+    text-decoration: none;
+}
+
 .startMenu-btn {
     height: 7vh;
     border-radius: 7vh;
     line-height: 7vh;
     text-align: center;
     font-size: .85em;
-    width: 40%;
+    width: 45vw;
     border: floralwhite 3px solid;
 }
 
@@ -174,7 +178,7 @@ body {
 
 .pregame-hidden {
     position: absolute;
-    opacity: 0%;
+    visibility: hidden;
 }
 
 /* ------------------------------- */

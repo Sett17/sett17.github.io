@@ -1,7 +1,9 @@
-cacheName = "testCache-v1.0"
+cacheName = "testCache-dev-v1.0"
 const toCache = [
     '/',
     '/index.html',
+    '/main.js',
+    '/helpers.js',
     '/style.css',
     '/assets/*',
     '/compos/*',

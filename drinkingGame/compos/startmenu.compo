@@ -5,9 +5,11 @@
     <button class="startMenu-btn btn" id="playBtn" onclick="changePage('pregame')">
         Spielen!
     </button>
-    <button class="startMenu-btn btn" id="settingsBtn">
-        Blah
-    </button>
+    <a href="https://forms.gle/EUaUgct3Ky69Cjon9" target="_blank">
+        <button class="startMenu-btn btn" id="settingsBtn">
+            Karten Idee
+        </button>
+    </a>
 </div>
 <div id="startMenu-spacer">
 
