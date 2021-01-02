@@ -61,10 +61,13 @@ function handleDragEnd(e) {
     }, 100)
 }
 
+let lastDx = oriX
 function handleDragMove(e) {
     if (!isReturning) {
         let dX = e.touches[0].clientX - oriX
         let dY = e.touches[0].clientY - oriY
+        document.querySelector('#card').style.filter = `blur(${Math.abs(lastDx - dX)}px)`
+        lastDx = dX
         if (dX >= 0) {
             angle = ((coerce(dX, 0, 200) - 0) / (200 - 0) * (20 - 0) + 0) * Math.PI / 180
         } else {
