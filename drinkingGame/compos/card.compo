@@ -1,0 +1,21 @@
+<div id="card">
+    <div id="card-title">
+        *TITLE*
+    </div>
+    <div id="card-text">
+        *TEXT*
+    </div>
+    <div id="card-footer">
+        <div id="card-set">*SET*</div>
+        <div id="card-alt">
+            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                x="0px" y="0px" width="15" height="36" viewBox="0 0 15 36" xml:space="preserve"
+                style="background-color: transparent">
+                <path stroke="floralwhite" fill="transparent" stroke-width="2px"
+                    d="M2,31 v-18 c0,-3,3,0,3,-10 h5 m3,10 c0,-3,-3,0,-3,-10 h-1 m4,10 v18 a1,.5,0,0,1,-11,0" />
+                <path fill="floralwhite" d="m2,31 v-11 h11 v11 a1,.5,0,0,1,-11,0" />
+            </svg>
+            <span>*SIPS*</span>
+        </div>
+    </div>
+</div>

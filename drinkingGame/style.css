@@ -79,7 +79,7 @@ body {
     /* background-color: blueviolet; */
 }
 
-a{
+a {
     text-decoration: none;
 }
 
@@ -179,6 +179,108 @@ a{
 .pregame-hidden {
     position: absolute;
     visibility: hidden;
+}
+
+/* ------------------------------- */
+
+/* ------------ play ------------- */
+
+#play-name {
+    flex: 1.8;
+    display: flex;
+    font-size: 1.8em;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+/* #play-cardWrapper {
+    flex: 7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+} */
+
+#play-spacer {
+    flex: 8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    color: hsl(40, 5%, 50%);
+    font-size: .7em;
+}
+
+#card-wrapper {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#card {
+    height: 50vh;
+    position: absolute;
+    /* transform: translate(-50%, -40%); */
+    transform: matrix(1, 0, 0, 1, 0, 40);
+    transition: all 0ms;
+    width: calc(50vh * .66);
+    border-radius: 5vh;
+    border: floralwhite 5px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #1d1d1d;
+    box-shadow: hsla(0, 0%, 0%, 60%) 0px 8px 20px;
+}
+
+#card-title {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#card-text {
+    flex: 5;
+    word-wrap: normal;
+    overflow-x: hidden;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: .7em;
+}
+
+#card-footer {
+    flex: 1;
+    width: 85%;
+    font-size: .8em;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+#card-set {
+    flex: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#card-alt {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+}
+
+#card-alt svg {
+    margin-right: 3vw;
 }
 
 /* ------------------------------- */

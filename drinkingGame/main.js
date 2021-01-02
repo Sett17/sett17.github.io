@@ -1,5 +1,10 @@
 const startMenu = "./compos/startmenu.compo"
 const preGame = "./compos/pregame.compo"
+const playPage = "./compos/play.compo"
+let cardCompo = ""
+fetch("./compos/card.compo")
+    .then(res => res.text())
+    .then(data => { cardCompo = data })
 const sess = new Session()
 
 let playerlist = []
@@ -38,6 +43,18 @@ search.forEach(el => {
                         })
                     currPage = preGame
                     break
+                case "play":
+                    loadCompo(playPage)
+                        .then(_ => {
+                            //DBG
+                            addCard()
+                            // 
+                            addDrags(document.querySelector('#card'))
+
+                        })
+                    currPage = playPage
+                // TODO check for player count
+
                 default:
                     break
             }
@@ -47,6 +64,22 @@ search.forEach(el => {
             loadCompo(startMenu)
     }
 })
+
+function addCard() {
+    if (currPage === playPage) {
+        document.querySelector('#card').outerHTML = makeCard()
+    }
+}
+
+function makeCard() {
+    let card = cardCompo
+    card = card
+        .replace("*TITLE*", "Titel")
+        .replace("*TEXT*", "Ey du wichser")
+        .replace("*SET*", "Virus")
+        .replace("*SIPS*", "17")
+    return card
+}
 
 function addPlayer() {
     let player = {
