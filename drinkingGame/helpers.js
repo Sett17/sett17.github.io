@@ -31,7 +31,17 @@ class Session extends Map {
     }
 }
 
-let oriX = 0, oriY = 0, dX = 0, dY = 40, angle = 0
+function coerce(num, min, max) {
+    if (num < min) {
+        return min
+    } else if (num > max) {
+        return max
+    } else {
+        return num
+    }
+}
+
+let oriX = 0, oriY = 0, dX = 0, dY = 40, offsetX = 0, offsetY = 40, angle = 0
 let isReturning = false
 function handleDragStart(e) {
     if (!isReturning) {
@@ -55,7 +65,12 @@ function handleDragMove(e) {
     if (!isReturning) {
         let dX = e.touches[0].clientX - oriX
         let dY = e.touches[0].clientY - oriY
-        document.querySelector('#card').style.transform = getMatrix(angle, dX, dY)
+        if (dX >= 0) {
+            angle = ((coerce(dX, 0, 200) - 0) / (200 - 0) * (20 - 0) + 0) * Math.PI / 180
+        } else {
+            angle = -((coerce(-dX, 0, 200) - 0) / (200 - 0) * (20 - 0) + 0) * Math.PI / 180
+        }
+        document.querySelector('#card').style.transform = getMatrix(angle, dX + offsetX, dY + offsetY)
     }
 }
 
@@ -66,5 +81,5 @@ function addDrags(el) {
 }
 
 function getMatrix(angle, tx, ty) {
-    return `matrix(1, 0, 0, 1, ${tx}, ${ty})`
+    return `matrix(${Math.cos(angle)}, ${Math.sin(angle)}, ${-Math.sin(angle)}, ${Math.cos(angle)}, ${tx}, ${ty})`
 }
