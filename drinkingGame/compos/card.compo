@@ -1,4 +1,4 @@
-<div id="card">
+<div id="card" class="blur">
     <div id="card-title">
         *TITLE*
     </div>

@@ -54,19 +54,22 @@ function handleDragEnd(e) {
     //TODO check where it is
     isReturning = true
     document.querySelector('#card').style.transition = "all 100ms"
-    document.querySelector('#card').style.transform = getMatrix(0, 0, 40)
+    document.querySelector('#card').style.transform = getMatrix(0, -Math.sign(dX) * 15, -Math.sign(dY) * 15 + 40)
     setTimeout(() => {
-        isReturning = false
-        document.querySelector('#card').style.transition = "all 0ms"
+        document.querySelector('#card').style.transition = "all 80ms"
+        document.querySelector('#card').style.transform = getMatrix(0, 0, 40)
+        setTimeout(() => {
+            isReturning = false
+            document.querySelector('#card').style.transition = "all 0ms"
+        }, 80)
     }, 100)
 }
 
 let lastDx = oriX
 function handleDragMove(e) {
     if (!isReturning) {
-        let dX = e.touches[0].clientX - oriX
-        let dY = e.touches[0].clientY - oriY
-        document.querySelector('#card').style.filter = `blur(${Math.abs(lastDx - dX)}px)`
+        dX = e.touches[0].clientX - oriX
+        dY = e.touches[0].clientY - oriY
         lastDx = dX
         if (dX >= 0) {
             angle = ((coerce(dX, 0, 200) - 0) / (200 - 0) * (20 - 0) + 0) * Math.PI / 180
