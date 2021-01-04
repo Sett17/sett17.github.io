@@ -1,28 +1,32 @@
 {
   "truth": [
     {
-      "title": "Partmaus?",
+      "title": "Partymaus?",
       "text": "Hattest du schon einmal Sex um Club?",
       "sips": 3,
-      "all": true
+      "all": true,
+      "set": "Wahrheit"
     },
     {
       "title": "Schusselig?",
       "text": "Hast du schonmal dein Handy verloren?",
       "sips": 3,
-      "all": false
+      "all": false,
+      "set": "Wahrheit"
     },
     {
       "title": "Schande",
       "text": "Hast du schonmal harte Drogen  zu dir genommen?",
       "sips": 3,
-      "all": false
+      "all": false,
+      "set": "Wahrheit"
     },
     {
       "title": "Was muss das muss",
       "text": "Hast du schonmal in einen Blumentopf gepinkelt?",
       "sips": 2,
-      "all": true
+      "all": true,
+      "set": "Wahrheit"
     }
   ],
   "dare": [
@@ -30,15 +34,17 @@
       "title": "Auf EX",
       "text": "Die Person die zuerst ihr Glas leert, bestimmt eine Person die eine Getränk ihrer Wahl trinken muss.",
       "sips": 0,
-      "all": true
+      "all": true,
+      "set": "Pflicht"
     }
   ],
   "virus": [
     {
       "title": "Papagei",
-      "text": "[NAME1] muss alles wiedholen, was du sagst.",
+      "text": "[NAME1] muss alles wiederholen, was du sagst.",
       "sips": 1,
-      "all": false
+      "all": false,
+      "set": "Virus"
     }
   ],
   "minigame": [
@@ -46,7 +52,8 @@
       "title": "Warheit oder Pflicht",
       "text": "Spielt einmal im Kreis, jeder stellt seinem rechten Nachbarn die Frage.",
       "sips": 4,
-      "all": true
+      "all": true,
+      "set": "Minigame"
     }
   ]
 }

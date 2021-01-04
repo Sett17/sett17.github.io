@@ -253,6 +253,8 @@ a {
     justify-content: center;
     align-items: center;
     font-size: .7em;
+    text-align: center;
+    width: 80%;
 }
 
 #card-footer {

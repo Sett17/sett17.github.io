@@ -7,6 +7,8 @@ fetch("./compos/card.compo")
     .then(data => { cardCompo = data })
 const sess = new Session()
 
+cards = {}
+
 let playerlist = []
 let highestId = -1
 if (sess.get('playerList')) {
@@ -44,17 +46,31 @@ search.forEach(el => {
                     currPage = preGame
                     break
                 case "play":
-                    loadCompo(playPage)
-                        .then(_ => {
-                            //DBG
-                            addCard()
-                            // 
-                            addDrags(document.querySelector('#card'))
+                    let playerCount = 4
+                    // let playerCount = 0
+                    // if (sess.get('playerList')) {
+                    //     playerCount = sess.get('playerList').length
+                    // }
+                    if (playerCount > 1) {
+                        loadCompo(playPage)
+                            .then(_ => {
+                                loadCards()
+                                    .then(data => cards = data)
+                                    .then(_ => {
+                                        if (allCards.length == 0) {
+                                            allCards = cards.truth.concat(cards.dare.concat(cards.virus.concat(cards.minigame)))
+                                        }
 
-                        })
-                    currPage = playPage
-                // TODO check for player count
-
+                                        //DBG
+                                        addCard(chooseCard())
+                                        // 
+                                        addDrags(document.querySelector('#card'))
+                                    })
+                            })
+                        currPage = playPage
+                    } else {
+                        changePage('pregame')
+                    }
                 default:
                     break
             }
@@ -65,19 +81,30 @@ search.forEach(el => {
     }
 })
 
-function addCard() {
+
+let usedCards = []
+let allCards = []
+function chooseCard() {
+    useableCards = allCards
+    usedCards.forEach(element => {
+        useableCards.remove(element)
+    })
+    return useableCards[Math.floor(Math.random() * useableCards.length)]
+}
+
+function addCard(card) {
     if (currPage === playPage) {
-        document.querySelector('#card').outerHTML = makeCard()
+        document.querySelector('#card').outerHTML = makeCard(card)
     }
 }
 
-function makeCard() {
+function makeCard(use) {
     let card = cardCompo
     card = card
-        .replace("*TITLE*", "Titel")
-        .replace("*TEXT*", "Ey du wichser")
-        .replace("*SET*", "Virus")
-        .replace("*SIPS*", "17")
+        .replace("*TITLE*", use.title)
+        .replace("*TEXT*", use.text)
+        .replace("*SET*", use.set)
+        .replace("*SIPS*", use.sips)
     return card
 }
 

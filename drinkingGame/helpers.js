@@ -53,7 +53,6 @@ function handleDragStart(e) {
 function handleDragEnd(e) {
     //TODO check where it
     let zoneSize = [document.body.clientWidth * .3, document.body.clientHeight * .4]
-    console.log(dX)
     if (dX < zoneSize[0] &&
         dX > -zoneSize[0] &&
         dY < zoneSize[1]) {
@@ -65,7 +64,7 @@ function handleDragEnd(e) {
             document.querySelector('#card').style.transform = getMatrix(0, 0, 40)
             setTimeout(() => {
                 isMoving = false
-                document.querySelector('#card').style.transition = "all 0ms"
+                document.querySelector('#card').style.transition = `all ${turnTime}ms`
             }, 80)
         }, 100)
     } else {
@@ -103,8 +102,6 @@ function handleDragMove(e) {
                 angle = -((coerce(-dX, 0, 200) - 0) / (200 - 0) * (20 - 0) + 0) * Math.PI / 180
             }
             document.querySelector('#card').style.transform = getMatrix(angle, dX + offsetX, dY + offsetY)
-        } else {
-            console.log("1");
         }
     }
 }
@@ -117,4 +114,19 @@ function addDrags(el) {
 
 function getMatrix(angle, tx, ty) {
     return `matrix(${Math.cos(angle)}, ${Math.sin(angle)}, ${-Math.sin(angle)}, ${Math.cos(angle)}, ${tx}, ${ty})`
+}
+
+function loadCards() {
+    return fetch('./assets/cards.json')
+        .then(d => d.json())
+}
+
+String.prototype.hash = function () {
+    var hash = 0
+    for (var i = 0; i < this.length; i++) {
+        var code = this.charCodeAt(i)
+        hash = ((hash << 5) - hash) + code
+        hash = hash & hash // Convert to 32bit integer
+    }
+    return hash
 }
