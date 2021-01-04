@@ -85,18 +85,27 @@ function handleDragEnd(e) {
 
 let lastDx = oriX
 let lastCoord = [0, 0]
+
+let turnTime = 5
+let turn = true
 function handleDragMove(e) {
     if (!isMoving) {
-        lastCoord = [e.touches[0].clientX, e.touches[0].clientY]
-        dX = e.touches[0].clientX - oriX
-        dY = e.touches[0].clientY - oriY
-        lastDx = dX
-        if (dX >= 0) {
-            angle = ((coerce(dX, 0, 200) - 0) / (200 - 0) * (20 - 0) + 0) * Math.PI / 180
+        if (turn) {
+            turn = false
+            setTimeout(() => { turn = true }, turnTime)
+            lastCoord = [e.touches[0].clientX, e.touches[0].clientY]
+            dX = e.touches[0].clientX - oriX
+            dY = e.touches[0].clientY - oriY
+            lastDx = dX
+            if (dX >= 0) {
+                angle = ((coerce(dX, 0, 200) - 0) / (200 - 0) * (20 - 0) + 0) * Math.PI / 180
+            } else {
+                angle = -((coerce(-dX, 0, 200) - 0) / (200 - 0) * (20 - 0) + 0) * Math.PI / 180
+            }
+            document.querySelector('#card').style.transform = getMatrix(angle, dX + offsetX, dY + offsetY)
         } else {
-            angle = -((coerce(-dX, 0, 200) - 0) / (200 - 0) * (20 - 0) + 0) * Math.PI / 180
+            console.log("1");
         }
-        document.querySelector('#card').style.transform = getMatrix(angle, dX + offsetX, dY + offsetY)
     }
 }
 
