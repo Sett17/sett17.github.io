@@ -76,7 +76,7 @@ function handleDragEnd(e) {
         } else {
             isMoving = true
             document.querySelector('#card').style.transition = "all 100ms"
-            document.querySelector('#card').style.transform = getMatrix(angle, dX + Math.sign(dX) * zoneSize[0] * 2, dY + offsetY)
+            document.querySelector('#card').style.transform = getMatrix(angle, dX + Math.sign(dX) * zoneSize[0] * 2.5, dY + offsetY)
         }
     }
 }
