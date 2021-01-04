@@ -69,7 +69,9 @@ function handleDragEnd(e) {
             }, 80)
         }, 100)
     } else {
-        if (dY > zoneSize[1]) {
+        if (dY > zoneSize[1] &&
+            dX < zoneSize[0] &&
+            dX > -zoneSize[0]) {
             isMoving = true
             document.querySelector('#card').style.transition = "all 100ms"
             document.querySelector('#card').style.transform = getMatrix(angle, dX, dY + zoneSize[1] * 1)
