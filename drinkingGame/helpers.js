@@ -42,32 +42,50 @@ function coerce(num, min, max) {
 }
 
 let oriX = 0, oriY = 0, dX = 0, dY = 40, offsetX = 0, offsetY = 40, angle = 0
-let isReturning = false
+let isMoving = false
 function handleDragStart(e) {
-    if (!isReturning) {
+    if (!isMoving) {
         oriX = e.touches[0].clientX
         oriY = e.touches[0].clientY
     }
 }
 
 function handleDragEnd(e) {
-    //TODO check where it is
-    isReturning = true
-    document.querySelector('#card').style.transition = "all 100ms"
-    document.querySelector('#card').style.transform = getMatrix(0, -Math.sign(dX) * 15, -Math.sign(dY) * 15 + 40)
-    setTimeout(() => {
-        document.querySelector('#card').style.transition = "all 80ms"
-        document.querySelector('#card').style.transform = getMatrix(0, 0, 40)
+    //TODO check where it
+    let zoneSize = [document.body.clientWidth * .3, document.body.clientHeight * .4]
+    console.log(dX)
+    if (dX < zoneSize[0] &&
+        dX > -zoneSize[0] &&
+        dY < zoneSize[1]) {
+        isMoving = true
+        document.querySelector('#card').style.transition = "all 100ms"
+        document.querySelector('#card').style.transform = getMatrix(0, -Math.sign(dX) * 15, -Math.sign(dY) * 15 + 40)
         setTimeout(() => {
-            isReturning = false
-            document.querySelector('#card').style.transition = "all 0ms"
-        }, 80)
-    }, 100)
+            document.querySelector('#card').style.transition = "all 80ms"
+            document.querySelector('#card').style.transform = getMatrix(0, 0, 40)
+            setTimeout(() => {
+                isMoving = false
+                document.querySelector('#card').style.transition = "all 0ms"
+            }, 80)
+        }, 100)
+    } else {
+        if (dY > zoneSize[1]) {
+            isMoving = true
+            document.querySelector('#card').style.transition = "all 100ms"
+            document.querySelector('#card').style.transform = getMatrix(angle, dX, dY + zoneSize[1] * 1)
+        } else {
+            isMoving = true
+            document.querySelector('#card').style.transition = "all 100ms"
+            document.querySelector('#card').style.transform = getMatrix(angle, dX + Math.sign(dX) * zoneSize[0] * 2, dY + offsetY)
+        }
+    }
 }
 
 let lastDx = oriX
+let lastCoord = [0, 0]
 function handleDragMove(e) {
-    if (!isReturning) {
+    if (!isMoving) {
+        lastCoord = [e.touches[0].clientX, e.touches[0].clientY]
         dX = e.touches[0].clientX - oriX
         dY = e.touches[0].clientY - oriY
         lastDx = dX
