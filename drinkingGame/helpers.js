@@ -74,7 +74,7 @@ function handleDragEnd(e) {
                 document.querySelector('#card').style.transition = `all ${turnTime}ms`
             }, animTimeBounce)
         }, animTimeRet)
-    } else {
+    } else if (gameRunning) {
         if (dY > zoneSize[1] &&
             dX < zoneSize[0] &&
             dX > -zoneSize[0]) {
@@ -90,6 +90,10 @@ function handleDragEnd(e) {
             newCard()
             isMoving = false
         }, animTimeOut * 1.5)
+    } else {
+        setTimeout(() => {
+            changePage('startmenu')
+        }, 1000)
     }
 }
 

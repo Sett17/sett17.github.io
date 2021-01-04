@@ -9,6 +9,8 @@ const sess = new Session()
 
 cards = {}
 
+let gameRunning
+
 let highestId = -1
 let playerlist = []
 if (sess.get('playerList')) {
@@ -67,6 +69,7 @@ search.forEach(el => {
                                             allCards = cards.truth.concat(cards.dare.concat(cards.virus.concat(cards.minigame)))
                                             sess.set('allCards', allCards)
                                         }
+                                        gameRunning = true
                                         newCard()
                                     })
                             })
@@ -88,12 +91,13 @@ function newCard() {
     addCard(chooseCard())
 }
 
+let currCard = {}
 function chooseCard() {
     useableCards = allCards
     usedCards.forEach(element => {
         useableCards.remove(element)
     })
-    let currCard = useableCards[Math.floor(Math.random() * useableCards.length)]
+    currCard = useableCards[Math.floor(Math.random() * useableCards.length)]
     usedCards.push(currCard)
     return currCard
 }
@@ -117,11 +121,20 @@ function addCard(card) {
 
 function makeCard(use) {
     let card = cardCompo
-    card = card
-        .replace("*TITLE*", use.title)
-        .replace("*TEXT*", use.text)
-        .replace("*SET*", use.set)
-        .replace("*SIPS*", use.sips)
+    try {
+        card = card
+            .replace("*TITLE*", use.title)
+            .replace("*TEXT*", use.text)
+            .replace("*SET*", use.set)
+            .replace("*SIPS*", use.sips)
+    } catch (error) {
+        card = card
+            .replace("*TITLE*", "Das wars")
+            .replace("*TEXT*", "Danke fürs Spielen!<br>Wische einfach diese Karte weg.")
+            .replace("*SET*", "Ehre")
+            .replace("*SIPS*", "&#x221e;")
+        gameRunning = false
+    }
     return card
 }
 

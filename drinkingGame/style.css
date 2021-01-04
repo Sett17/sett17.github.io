@@ -242,6 +242,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: flex-end;
+    font-size: clamp(.8em, 6.7vw, 1em);
 }
 
 #card-text {
@@ -252,7 +253,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: .7em;
+    font-size: clamp(.3em, 5vw, .7em);
     text-align: center;
     width: 80%;
 }
