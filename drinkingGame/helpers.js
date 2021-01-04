@@ -44,41 +44,52 @@ function coerce(num, min, max) {
 let oriX = 0, oriY = 0, dX = 0, dY = 40, offsetX = 0, offsetY = 40, angle = 0
 let isMoving = false
 function handleDragStart(e) {
+    document.querySelector('#card').style.transition = `all ${turnTime}ms`
+    dX = 0
+    dY = 0
     if (!isMoving) {
         oriX = e.touches[0].clientX
         oriY = e.touches[0].clientY
     }
 }
 
+const animTimeRet = 100
+const animTimeBounce = 80
+const animTimeOut = 150
+const animTimeIn = 100
+
 function handleDragEnd(e) {
-    //TODO check where it
-    let zoneSize = [document.body.clientWidth * .3, document.body.clientHeight * .4]
+    let zoneSize = [document.body.clientWidth * .3, document.body.clientHeight * .33]
     if (dX < zoneSize[0] &&
         dX > -zoneSize[0] &&
         dY < zoneSize[1]) {
         isMoving = true
-        document.querySelector('#card').style.transition = "all 100ms"
-        document.querySelector('#card').style.transform = getMatrix(0, -Math.sign(dX) * 15, -Math.sign(dY) * 15 + 40)
+        document.querySelector('#card').style.transition = `all ${animTimeRet}ms`
+        document.querySelector('#card').style.transform = getMatrix(0, -Math.sign(dX) * 15, -Math.sign(dY) * 15 + offsetY)
         setTimeout(() => {
-            document.querySelector('#card').style.transition = "all 80ms"
-            document.querySelector('#card').style.transform = getMatrix(0, 0, 40)
+            document.querySelector('#card').style.transition = `all ${animTimeBounce}ms`
+            document.querySelector('#card').style.transform = getMatrix(0, 0, offsetY)
             setTimeout(() => {
                 isMoving = false
                 document.querySelector('#card').style.transition = `all ${turnTime}ms`
-            }, 80)
-        }, 100)
+            }, animTimeBounce)
+        }, animTimeRet)
     } else {
         if (dY > zoneSize[1] &&
             dX < zoneSize[0] &&
             dX > -zoneSize[0]) {
             isMoving = true
-            document.querySelector('#card').style.transition = "all 100ms"
-            document.querySelector('#card').style.transform = getMatrix(angle, dX, dY + zoneSize[1] * 1)
+            document.querySelector('#card').style.transition = `all ${animTimeOut}ms`
+            document.querySelector('#card').style.transform = getMatrix(angle, dX, dY + zoneSize[1] * 1.5)
         } else {
             isMoving = true
-            document.querySelector('#card').style.transition = "all 100ms"
-            document.querySelector('#card').style.transform = getMatrix(angle, dX + Math.sign(dX) * zoneSize[0] * 2.5, dY + offsetY)
+            document.querySelector('#card').style.transition = `all ${animTimeOut}ms`
+            document.querySelector('#card').style.transform = getMatrix(angle, dX + Math.sign(dX) * zoneSize[0] * 2.2, dY + offsetY)
         }
+        setTimeout(() => {
+            newCard()
+            isMoving = false
+        }, animTimeOut * 1.5)
     }
 }
 
@@ -129,4 +140,11 @@ String.prototype.hash = function () {
         hash = hash & hash // Convert to 32bit integer
     }
     return hash
+}
+
+Array.prototype.remove = function (obj) {
+    const index = this.indexOf(obj)
+    if (index > -1) {
+        this.splice(index, 1)
+    }
 }

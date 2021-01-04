@@ -9,11 +9,20 @@ const sess = new Session()
 
 cards = {}
 
-let playerlist = []
 let highestId = -1
+let playerlist = []
 if (sess.get('playerList')) {
     playerlist = sess.get('playerList')
 }
+let usedCards = []
+if (sess.get('usedCards')) {
+    usedCards = sess.get('usedCards')
+}
+let allCards = []
+if (sess.get('allCards')) {
+    allCards = sess.get('allCards')
+}
+
 for (let i = 0; i < playerlist.length; i++) {
     if (playerlist[i].id > highestId) {
         highestId = playerlist[i].id
@@ -46,11 +55,8 @@ search.forEach(el => {
                     currPage = preGame
                     break
                 case "play":
-                    let playerCount = 4
-                    // let playerCount = 0
-                    // if (sess.get('playerList')) {
-                    //     playerCount = sess.get('playerList').length
-                    // }
+                    // let playerCount = playerlist.length
+                    let playerCount = 999
                     if (playerCount > 1) {
                         loadCompo(playPage)
                             .then(_ => {
@@ -59,12 +65,9 @@ search.forEach(el => {
                                     .then(_ => {
                                         if (allCards.length == 0) {
                                             allCards = cards.truth.concat(cards.dare.concat(cards.virus.concat(cards.minigame)))
+                                            sess.set('allCards', allCards)
                                         }
-
-                                        //DBG
-                                        addCard(chooseCard())
-                                        // 
-                                        addDrags(document.querySelector('#card'))
+                                        newCard()
                                     })
                             })
                         currPage = playPage
@@ -81,20 +84,34 @@ search.forEach(el => {
     }
 })
 
+function newCard() {
+    addCard(chooseCard())
+}
 
-let usedCards = []
-let allCards = []
 function chooseCard() {
     useableCards = allCards
     usedCards.forEach(element => {
         useableCards.remove(element)
     })
-    return useableCards[Math.floor(Math.random() * useableCards.length)]
+    let currCard = useableCards[Math.floor(Math.random() * useableCards.length)]
+    usedCards.push(currCard)
+    return currCard
 }
 
 function addCard(card) {
     if (currPage === playPage) {
         document.querySelector('#card').outerHTML = makeCard(card)
+        document.querySelector('#card').style.transition = "all 0ms"
+        document.querySelector('#card').style.transform = `matrix(0.01, 0, 0, 0.01, 0, ${offsetY})`
+        document.querySelector('#card').style.opacity = "0.01"
+        document.querySelector('#card').style.transition = `all ${animTimeIn}ms`
+        setTimeout(() => {
+            document.querySelector('#card').style.transform = `matrix(1, 0, 0, 1, 0, ${offsetY})`
+            document.querySelector('#card').style.opacity = "1.0"
+            setInterval(() => {
+                addDrags(document.querySelector('#card'))
+            }, animTimeIn)
+        }, 1)
     }
 }
 
