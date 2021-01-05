@@ -1,4 +1,4 @@
-cacheName = "cache-dev-v1.5"
+cacheName = "cache-dev-v1.6"
 document.querySelector('#version').innerHTML = cacheName
 
 
