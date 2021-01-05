@@ -1,3 +1,7 @@
+cacheName = "cache-dev-v1.5"
+document.querySelector('#version').innerHTML = cacheName
+
+
 const startMenu = "./compos/startmenu.compo"
 const preGame = "./compos/pregame.compo"
 const playPage = "./compos/play.compo"

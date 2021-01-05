@@ -23,6 +23,14 @@ body {
     outline: none;
 }
 
+#version {
+    position: fixed;
+    top: 2vh;
+    left: 2vh;
+    font-size: .6em;
+    color: hsl(0, 0%, 30%);
+}
+
 #root {
     display: flex;
     flex: 1;
