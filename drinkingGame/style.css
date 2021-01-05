@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'SF-Pro';
-    src: local('Pacifico Regular'), local('Pacifico-Regular'), url('./assets/SF-UI-Text-Regular.otf'), sanf-serif;
-    font-display: swap;
+    src: url('./assets/SF-UI-Text-Regular.otf');
+    font-display: auto
 }
 
 * {

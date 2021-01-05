@@ -5,7 +5,7 @@
     <button class="startMenu-btn btn" id="playBtn" onclick="changePage('pregame')">
         Spielen!
     </button>
-    <a href="https://forms.gle/EUaUgct3Ky69Cjon9" target="_blank">
+    <a href="https://forms.gle/EUaUgct3Ky69Cjon9" target="_blank" rel="noreferrer">
         <button class="startMenu-btn btn" id="settingsBtn">
             Karten Idee
         </button>
