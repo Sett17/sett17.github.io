@@ -1,5 +1,5 @@
 <div id="startMenu-title">
-    Drink!Drink!
+    Trink! Trink!
 </div>
 <div id="startMenu-btns">
     <button class="startMenu-btn btn" id="playBtn" onclick="changePage('pregame')">
