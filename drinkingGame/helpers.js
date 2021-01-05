@@ -152,3 +152,13 @@ Array.prototype.remove = function (obj) {
         this.splice(index, 1)
     }
 }
+
+function reloadFresh() {
+    navigator.serviceWorker.getRegistration().then(function (reg) {
+        if (reg) {
+            reg.unregister().then(function () { location.reload() })
+        } else {
+            location.reload()
+        }
+    })
+}
