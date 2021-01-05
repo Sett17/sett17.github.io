@@ -1,4 +1,4 @@
-cacheName = "cache-dev-v2.1.0"
+cacheName = "cache-dev-v2.1.1"
 const toCache = [
     '/',
     '/index.html',
@@ -64,10 +64,10 @@ self.addEventListener('install', function (e) {
     // The promise that skipWaiting() returns can be safely ignored.
     self.skipWaiting()
     console.log("Latest version installed!")
-    e.waitUntil(
-        caches.open(cacheName).then((cache) => {
-            console.log('[Service Worker] Caching all: app shell and content')
-            return cache.addAll(toCache)
-        })
-    )
+    // e.waitUntil(
+    //     caches.open(cacheName).then((cache) => {
+    //         console.log('[Service Worker] Caching all: app shell and content')
+    //         return cache.addAll(toCache)
+    //     })
+    // )
 })
