@@ -1,6 +1,5 @@
-cacheName = "cache-dev-v1.6"
+cacheName = "cache-dev-v1.7"
 document.querySelector('#version').innerHTML = cacheName
-
 
 const startMenu = "./compos/startmenu.compo"
 const preGame = "./compos/pregame.compo"
