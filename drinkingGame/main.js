@@ -1,4 +1,4 @@
-cacheName = "cache-dev-v2.0.1"
+cacheName = "cache-dev-v2.0.2"
 document.querySelector('#version').innerHTML = cacheName
 
 const startMenu = "./compos/startmenu.compo"
