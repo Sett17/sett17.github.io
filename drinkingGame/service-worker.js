@@ -1,4 +1,4 @@
-cacheName = "cache-dev-v2.0.2"
+cacheName = "cache-dev-v2.0.3"
 const toCache = [
     '/',
     '/index.html',
